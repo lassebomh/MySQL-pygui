@@ -76,10 +76,6 @@ def cmd_send(a):
 	cmd_output.see(tk.END)
 	cmd_entry.delete(0, tk.END)
 
-
-# Det er godt nok noget af en mundfuld, men godt at høre at du har fået noget kontrol. 
-
-
 cmd_entry.bind('<Return>', cmd_send)
 
 mariadb_connection = None
