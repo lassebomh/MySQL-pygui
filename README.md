@@ -1,5 +1,5 @@
 # MySQL-pygui
-A very basic shell for MySQL/MariaDB made using [MySQL Connector/Python](https://dev.mysql.com/doc/connector-python/en/) and Tkinter. This project is purely for me to learn about interfacing with MySQL/MariaDB, and should not be seen as a replacement to any other tools.
+A simplistic shell for MySQL/MariaDB made using [MySQL Connector/Python](https://dev.mysql.com/doc/connector-python/en/) and Tkinter. This project is purely for me to learn about interfacing with MySQL/MariaDB, and should not be seen as a replacement to any other tools.
   
 <img src="https://i.imgur.com/WxFLbGd.png" width="40%">  
 <img src="https://i.imgur.com/7ZPHlVp.png" width="65%">  
