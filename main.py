@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-# pip install mysql-connector-python
-
 import mysql.connector as mariadb
 import tkinter as tk
 from tkinter import ttk
@@ -60,21 +58,28 @@ def connect_db():
 
 root = tk.Tk()
 root.resizable(0, 0)
+root.title('MySQL-PyUI')
+
 frm = tkn(root, tk.Frame).grid(0, 0, padx=24, pady=18)
 
-cmd_output = tkn(frm, tk.Text, width=40, height=20, state='disabled', font=('Consolas', 10)).grid(0, 0)
-cmd_entry = tkn(frm, ttk.Entry, width=40, font=('Consolas', 10)).grid(0, 1)
+cmd_output = tkn(frm, tk.Text, width=70, height=20, font=('Consolas', 10)).grid(0, 0)
+cmd_entry = tkn(frm, ttk.Entry, width=70, font=('Consolas', 10)).grid(0, 1)
 tkn(frm, tk.Label, text=';', font=('Consolas', 10)).grid(0, 1, columnspan=2, sticky='e')
 
 def cmd_send(a):
-	cursor.execute("SELECT * FROM Book")
-	print(dir(cursor))
-	# try:
-	# 	cmd_output.insert(tk.END, cursor.execute(cmd_entry.get())+'\n')
-	# except Exception as E:
-	# 	cmd_output.insert(tk.END, str(E)+'\n')
+	cmd_output.config(state='normal')
+	if cmd_entry.get() == 'clear':
+		cmd_output.delete('1.0', tk.END)
+	else:
+		try:
+			cursor.execute(cmd_entry.get())
+			cmd_output.insert(tk.END, '> '+cmd_entry.get()+'\n')
+			cmd_output.insert(tk.END, str(cursor.fetchall())+'\n')
+		except Exception as E:
+			cmd_output.insert(tk.END, str(E)+'\n')
 	cmd_output.see(tk.END)
 	cmd_entry.delete(0, tk.END)
+	cmd_output.config(state='disabled')
 
 cmd_entry.bind('<Return>', cmd_send)
 
