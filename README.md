@@ -8,7 +8,7 @@ A simplistic shell for MySQL/MariaDB made using [MySQL Connector/Python](https:/
 ```
 pip install mysql-connector-python
 ```
-Also make sure to Tkinter installed if you're on Linux:
+Also make sure that Tkinter installed if you're on Linux:
 ```
 sudo apt-get install python3-tk
 ```
